@@ -5,6 +5,17 @@ import {useDispatch, useSelector} from 'react-redux';
 import { addContact } from 'redux/contacts/contactsOperations';
 import {getContacts} from 'redux/contacts/contactsSelectors';
 
+const styles = {
+    form: {
+      width: 320,
+    },
+    label: {
+      display: 'flex',
+      flexDirection: 'column',
+      marginBottom: 15,
+    },
+  };
+
 const ContactForm = () => {
 
 const [name, setName] = useState('');
@@ -30,7 +41,7 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-        if (contacts.length > 0 && contacts.find((c) => c.name === name)) {
+        if (contacts && contacts.find((c) => c.name === name)) {
             return alert (`Contact ${name} already exists`);
         }
         dispatch(addContact({name: name, number: number}))
@@ -44,8 +55,8 @@ const reset = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <lable htmlFor="">
+            <form onSubmit={handleSubmit} style={styles.form}>
+                <lable htmlFor="" style={styles.label}>
                     Name
                     <input
                         type="text"
@@ -57,7 +68,7 @@ const reset = () => {
                         required
                     />
                 </lable>
-                <lable htmlFor="">
+                <lable htmlFor="" style={styles.label}>
                 Phone number
                 <input
                     type="tel"

@@ -9,7 +9,6 @@ const ContactList = () => {
 
     const dispatch = useDispatch();
     const contacts = useSelector(getContacts);
-    // console.log(contacts)
     const filter = useSelector(getFilter);
 
     const onContactDelete = contactId => {
@@ -21,7 +20,7 @@ const ContactList = () => {
        <Container>
             <h2>Contacts</h2>
         
-            {contacts.length > 0 && contacts.filter(({name}) => name.toLowerCase().includes(filter.toLowerCase())).map(({id, name, number}) => {
+            {contacts && contacts.filter(({name}) => name.toLowerCase().includes(filter.toLowerCase())).map(({id, name, number}) => {
             return (
                 <li key={id}>
                     {name}: {number}
