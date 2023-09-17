@@ -30,13 +30,11 @@ const handleRejected = (state, {error}) => {
 }
 
 const initialState = {
-    contacts: {
-        items: [],
-        isLoading: false,
-        error: null,
-        filter: '',
-      },
-}
+    items: [],
+    isLoading: false,
+    error: null,    
+    filter: '', 
+};
 
 const contactsSlice = createSlice({
     name: 'contacts', 
@@ -44,8 +42,7 @@ const contactsSlice = createSlice({
 
     reducers: {
         filterContacts: (state, { payload }) => {
-           state.filter = payload;
-
+            state.filter = payload;
         }        
     },
 

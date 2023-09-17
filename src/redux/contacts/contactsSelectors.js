@@ -2,20 +2,18 @@ export const selectContacts = state => state.contacts.items;
 
 
 export const selectFilteredContacts = state => {
-    const {filter, contacts} = state;
-    // console.log(contacts.items);
-    console.log(filter);
+    const {filter, items} = state.contacts;
+   console.log(filter, items)
 
     if(!filter) {
-        return contacts.items;
+        return items;
     }
 
-    const filteredContacts = contacts.items.filter(
-        ({name}) => 
-        name.toLowerCase().icludes(filter.toLowerCase())
-        );
-        console.log('zzz',filteredContacts);
-        return filteredContacts;
+    const filteredContacts = items.filter(
+        ({name}) => name.toLowerCase().includes(filter.toLowerCase())
+    );
+    console.log('zzz',filteredContacts);
+     return filteredContacts;
 };
 
 export const selectFilter = state => state.contacts.filter;
