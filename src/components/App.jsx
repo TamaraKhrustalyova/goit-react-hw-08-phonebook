@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import {Layout} from './Layout/Layout';
 import { useEffect, lazy } from "react";
-import fetchCurrentUser from 'redux/auth/Operations';
+import operations from 'redux/auth/Operations';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'components/hooks/useAuth';
 import { PrivateRoute } from 'components/PrivateRout';
@@ -18,7 +18,7 @@ const App = () => {
   const { isRefreshing } = useAuth();
 
   useEffect(() => {
-    dispatch(fetchCurrentUser());
+    dispatch(operations.fetchCurrentUser());
   }, [dispatch]);
 
   return isRefreshing ? (

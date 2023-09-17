@@ -18,11 +18,11 @@ const SearchFilter = () => {
 
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
-//   console.log(filter)
+  console.log(filter)
 
     return (
     <div style={styles.div}>
-      <tytle>Find contact by name</tytle>
+      <h2>Find contact by name</h2>
       <input style={styles.input}
         type="text" 
         value={filter}

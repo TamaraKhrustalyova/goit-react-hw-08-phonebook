@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Container } from 'components/Container/Container';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
-import { selectContacts, selectFilter} from 'redux/contacts/contactsSelectors';
+import { selectFilteredContacts} from 'redux/contacts/contactsSelectors';
 
 const ContactList = () => {
 
     const dispatch = useDispatch();
-    const contacts = useSelector(selectContacts);
-    const filter = useSelector(selectFilter);
+    const contacts = useSelector(selectFilteredContacts);
+   
 
     const onContactDelete = contactId => {
         dispatch(deleteContact(contactId))
@@ -20,7 +20,7 @@ const ContactList = () => {
        <Container>
             <h2>Contacts</h2>
         
-            {contacts && contacts.filter(({name}) => name.toLowerCase().includes(filter.toLowerCase())).map(({id, name, number}) => {
+            {contacts && contacts.map(({id, name, number}) => {
             return (
                 <li key={id}>
                     {name}: {number}

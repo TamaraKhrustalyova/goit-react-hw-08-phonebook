@@ -56,7 +56,7 @@ const reset = () => {
     return (
         <>
             <form onSubmit={handleSubmit} style={styles.form}>
-                <lable htmlFor="" style={styles.label}>
+                <label htmlFor="" style={styles.label}>
                     Name
                     <input
                         type="text"
@@ -67,8 +67,8 @@ const reset = () => {
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
                     />
-                </lable>
-                <lable htmlFor="" style={styles.label}>
+                </label>
+                <label htmlFor="" style={styles.label}>
                 Phone number
                 <input
                     type="tel"
@@ -79,7 +79,7 @@ const reset = () => {
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     required 
                 />
-                </lable>
+                </label>
                 <button type='submit'>Add contact</button>     
             </form>
         </>        
