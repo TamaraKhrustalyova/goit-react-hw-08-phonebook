@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Container } from 'components/Container/Container';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
-import { getContacts, getFilter} from 'redux/contacts/contactsSelectors';
+import { selectContacts, selectFilter} from 'redux/contacts/contactsSelectors';
 
 const ContactList = () => {
 
     const dispatch = useDispatch();
-    const contacts = useSelector(getContacts);
-    const filter = useSelector(getFilter);
+    const contacts = useSelector(selectContacts);
+    const filter = useSelector(selectFilter);
 
     const onContactDelete = contactId => {
         dispatch(deleteContact(contactId))

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
 // import {Form, Label, Input, Btn} from './ContactForm.styled'
 import { addContact } from 'redux/contacts/contactsOperations';
-import {getContacts} from 'redux/contacts/contactsSelectors';
+import {selectContacts} from 'redux/contacts/contactsSelectors';
 
 const styles = {
     form: {
@@ -20,7 +20,7 @@ const ContactForm = () => {
 
 const [name, setName] = useState('');
 const [number, setNumber] = useState('');
-const contacts = useSelector(getContacts);
+const contacts = useSelector(selectContacts);
 const dispatch = useDispatch();
 
 const handleChange = (e) => {

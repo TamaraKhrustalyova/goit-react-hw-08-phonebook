@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // import {Input, SubTitle} from './SearchFilter.styled'
 import { useDispatch, useSelector } from 'react-redux';
 import { filterContacts } from 'redux/contacts/contactsSlice';
-import { getFilter } from 'redux/contacts/contactsSelectors';
+import { selectFilter } from 'redux/contacts/contactsSelectors';
 
 const styles = {
   div: {
@@ -17,7 +17,7 @@ const styles = {
 const SearchFilter = () => {
 
   const dispatch = useDispatch();
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
 //   console.log(filter)
 
     return (

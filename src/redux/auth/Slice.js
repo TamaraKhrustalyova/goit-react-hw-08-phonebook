@@ -8,25 +8,31 @@ const initialState ={
     isRefreshing: false,
 };
 
+const { register, logIn, logOut, fetchCurrentUser } = operations;
+
 const authSlice = createSlice ({
     name: 'auth',
     initialState,
     extraReducers: (builder) => {
         builder
-        .addCase(operations.register.fulfilled, (state, {payload}) => {
+        .addCase(register.fulfilled, (state, {payload}) => {
             state.user = payload.user;
             state.token = payload.token;
             state.isLoggedIn = true;
         })
-        .addCase(operations.logIn.fulfilled, (state, {payload}) => {
+        .addCase(logIn.fulfilled, (state, {payload}) => {
             state.user = payload.user;
             state.token = payload.token;
             state.isLoggedIn = true;
         })
-        .addCase(operations.logOut.fulfilled, (state) => {
+        .addCase(logOut.fulfilled, (state) => {
             state.user = { name: null, email: null };
             state.token = null;
             state.isLoggedIn = false;
+        })
+        .addCase(fetchCurrentUser.fulfilled, (state, {payload}) => {
+            state.user = payload;
+            state.isLoggedIn = true;
         })
     }
 });
