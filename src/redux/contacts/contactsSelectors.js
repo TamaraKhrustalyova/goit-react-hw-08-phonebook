@@ -3,7 +3,8 @@ export const selectContacts = state => state.contacts.items;
 
 export const selectFilteredContacts = state => {
     const {filter, contacts} = state;
-    console.log(contacts);
+    // console.log(contacts.items);
+    console.log(filter);
 
     if(!filter) {
         return contacts.items;
@@ -11,9 +12,9 @@ export const selectFilteredContacts = state => {
 
     const filteredContacts = contacts.items.filter(
         ({name}) => 
-        name.toLowerCase().includes(filter.toLowerCase())
+        name.toLowerCase().icludes(filter.toLowerCase())
         );
-
+        console.log('zzz',filteredContacts);
         return filteredContacts;
 };
 
