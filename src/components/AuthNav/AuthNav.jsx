@@ -18,16 +18,16 @@ export const AuthNav = () => {
   return (
     <div>
       <NavLink to="/register"
-        exact
+        
         style={styles.link}
-        activeStyle={styles.activeLink}
+        active={styles.activeLink}
       >
         Register
       </NavLink>
       <NavLink to="/login"
-        exact
+        
         style={styles.link}
-        activeStyle={styles.activeLink}
+        active={styles.activeLink}
       >
         Log in
       </NavLink>

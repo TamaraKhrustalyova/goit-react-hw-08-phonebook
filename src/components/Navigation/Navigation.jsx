@@ -19,9 +19,9 @@ export const Navigation = () => {
 
   return (
     <nav>
-      <NavLink to="/" style={styles.link} activeStyle={styles.activeLink}>Home</NavLink>
+      <NavLink to="/" style={styles.link} active={styles.activeLink}>Home</NavLink>
       {isLoggedIn && (
-        <NavLink to="/phonebook" style={styles.link} activeStyle={styles.activeLink}>Phonebook</NavLink>
+        <NavLink to="/phonebook" style={styles.link} active={styles.activeLink}>Phonebook</NavLink>
       )}
     </nav>
   );
