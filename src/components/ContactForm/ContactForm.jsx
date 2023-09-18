@@ -42,7 +42,9 @@ const handleChange = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault();
         if (contacts && contacts.find((c) => c.name === name)) {
+            reset();
             return alert (`Contact ${name} already exists`);
+            
         }
         dispatch(addContact({name: name, number: number}))
         reset();
