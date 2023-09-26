@@ -3,22 +3,23 @@ import { UserMenu } from '../UserMenu/UserMenu';
 import { AuthNav } from '../AuthNav/AuthNav';
 import { useAuth } from 'components/hooks/useAuth';
 
-const styles = {
-    header: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      borderBottom: '1px solid #2A363B',
-    },
-  };
+import { Box  } from "@chakra-ui/react"
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
-
   return (
-    <header style={styles.header}>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
-    </header>
+    <Box
+      borderBottom='1px' 
+      borderColor='gray.200'
+      h="60px"
+      display='flex'
+      justifyContent='space-between'
+      alignItems='center'
+    >
+        <Navigation />
+        {isLoggedIn ? <UserMenu /> : <AuthNav />}
+    </Box>
   );
 };
+
+

@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { addContact } from 'redux/contacts/contactsOperations';
 import {selectContacts} from 'redux/contacts/contactsSelectors';
 
+
 const styles = {
     form: {
       width: 320,
@@ -41,10 +42,10 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-        if (contacts && contacts.find((c) => c.name === name)) {
+        if (contacts && contacts.find((c) => c.name === name || c.number.trim() === number.trim())) {
             reset();
-            return alert (`Contact ${name} already exists`);
-            
+            return alert (`This contact already exists`);
+          
         }
         dispatch(addContact({name: name, number: number}))
         reset();
@@ -65,7 +66,7 @@ const reset = () => {
                         name="name"
                         value={name}
                         onChange={handleChange}
-                        // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
                     />
@@ -77,7 +78,7 @@ const reset = () => {
                     name="number"
                     value={number}
                     onChange={handleChange}
-                    // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                    pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     required 
                 />

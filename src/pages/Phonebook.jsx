@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { fetchContacts } from 'redux/contacts/contactsOperations';
 import { useDispatch } from 'react-redux';
 
-
+import { Heading } from '@chakra-ui/react'             
 
 const Phonebook = () => {
 
@@ -18,11 +18,10 @@ const Phonebook = () => {
 
     return (
         <Container>
-            <h2>Phonebook</h2>
-                <ContactForm />
-                <SearchFilter />
-                
-                <ContactList />
+            <Heading as='h3' size='lg' color='lightsteelblue'>Phonebook</Heading>
+            <ContactForm />
+            <SearchFilter />
+            <ContactList />
         </Container>
     )
 };

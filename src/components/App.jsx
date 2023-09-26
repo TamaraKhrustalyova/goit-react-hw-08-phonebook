@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from 'components/hooks/useAuth';
 import { PrivateRoute } from 'components/PrivateRout';
 import { RestrictedRoute } from 'components/RestrictedRout';
+import { ChakraProvider } from '@chakra-ui/react'
 
 const Home = lazy(() => import('../pages/Home'));
 const Register = lazy(() => import('../pages/Register'));
@@ -24,20 +25,22 @@ const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    <Routes>
-      <Route path='/' element={<Layout />}>
-        <Route index element={<Home />}/>
-        <Route path="/register" element={
-          <RestrictedRoute redirectTo='/phonebook' component={<Register/>}/>
-        } />
-        <Route path="/login" element={
-        <RestrictedRoute redirectTo='/phonebook' component={<Login/>}/>
-        } />
-        <Route path="/phonebook" element={
-        <PrivateRoute redirectTo="/login" component={<Phonebook />} />
-        } />
-      </Route>
-    </Routes>
+    <ChakraProvider>
+      <Routes>
+          <Route path='/' element={<Layout />}>
+          <Route index element={<Home />}/>
+          <Route path="/register" element={
+            <RestrictedRoute redirectTo='/phonebook' component={<Register/>}/>
+          } />
+          <Route path="/login" element={
+          <RestrictedRoute redirectTo='/phonebook' component={<Login/>}/>
+          } />
+          <Route path="/phonebook" element={
+          <PrivateRoute redirectTo="/login" component={<Phonebook />} />
+          } />
+          </Route>
+      </Routes>
+    </ChakraProvider>
   );
 };
 
