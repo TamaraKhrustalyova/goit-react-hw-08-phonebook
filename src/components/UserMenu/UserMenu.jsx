@@ -2,7 +2,8 @@ import { useDispatch } from 'react-redux';
 import operations  from 'redux/auth/Operations';
 import { useAuth } from 'components/hooks/useAuth';
 
-import { Tabs, Tab } from '@chakra-ui/react'
+import {Button } from '@chakra-ui/react';
+
 
 
 export const UserMenu = () => {
@@ -10,17 +11,30 @@ export const UserMenu = () => {
   const { user } = useAuth();
 
   return (
-    <Tabs >
-      <Tab>
-        <span>Welcome, {user.email}</span>
-        <button 
-          type="button" 
-          onClick={() => dispatch(operations.logOut())}
-          >
-          Logout
-        </button>
-      </Tab>
-    </Tabs>
+    <>
+    {/* <Tabs variant='unstyled'>
+      <Tab><span>Welcome, {user.email}</span></Tab>
+    </Tabs>  
+      <Button
+        colorScheme='lightblue' variant='outline' size='sm' marginLeft="10px"
+        type="button" 
+        onClick={() => dispatch(operations.logOut())}
+        >
+        Logout
+      </Button> */}
+        
+      <span>Welcome, {user.email}</span>
+      <Button
+        colorScheme='blue' variant='outline' size='sm'
+        type="button" 
+        onClick={() => dispatch(operations.logOut())}
+        >
+        Logout
+      </Button>
+    </>
+    
+      
+   
     
   );
 };
