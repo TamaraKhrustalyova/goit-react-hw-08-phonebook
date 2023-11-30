@@ -5,18 +5,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import { addContact } from 'redux/contacts/contactsOperations';
 import {selectContacts} from 'redux/contacts/contactsSelectors';
 
-
-const styles = {
-    form: {
-      width: 320,
-    },
-    label: {
-      display: 'flex',
-      flexDirection: 'column',
-      marginBottom: 15,
-    },
-  };
-
 const ContactForm = () => {
 
 const [name, setName] = useState('');
@@ -58,8 +46,8 @@ const reset = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit} style={styles.form}>
-                <label htmlFor="" style={styles.label}>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="">
                     Name
                     <input
                         type="text"
@@ -71,7 +59,7 @@ const reset = () => {
                         required
                     />
                 </label>
-                <label htmlFor="" style={styles.label}>
+                <label htmlFor="">
                 Phone number
                 <input
                     type="tel"

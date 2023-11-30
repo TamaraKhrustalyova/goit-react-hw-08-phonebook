@@ -28,16 +28,16 @@ const App = () => {
     <ChakraProvider>
       <Routes>
           <Route path='/' element={<Layout />}>
-          <Route index element={<Home />}/>
-          <Route path="/register" element={
-            <RestrictedRoute redirectTo='/phonebook' component={<Register/>}/>
-          } />
-          <Route path="/login" element={
-          <RestrictedRoute redirectTo='/phonebook' component={<Login/>}/>
-          } />
-          <Route path="/phonebook" element={
-          <PrivateRoute redirectTo="/login" component={<Phonebook />} />
-          } />
+            <Route index element={<Home />}/>
+            <Route path="/register" element={
+              <RestrictedRoute redirectTo='/phonebook' component={<Register/>}/>
+            } />
+            <Route path="/login" element={
+            <RestrictedRoute redirectTo='/phonebook' component={<Login/>}/>
+            } />
+            <Route path="/phonebook" element={
+            <PrivateRoute redirectTo="/login" component={<Phonebook />} />
+            } />
           </Route>
       </Routes>
     </ChakraProvider>

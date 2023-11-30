@@ -2,17 +2,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import operations  from 'redux/auth/Operations';
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
-
 export default function RegisterForm() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
@@ -44,9 +33,9 @@ export default function RegisterForm() {
     <div>
       <h1>Please register</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} autoComplete="off">
         
-      <label style={styles.label}>
+      <label>
           Name
           <input 
           type="text" 
@@ -55,7 +44,7 @@ export default function RegisterForm() {
           onChange={handleChange} />
         </label>
 
-        <label style={styles.label}>
+        <label>
           Email
           <input
             type="email"
@@ -65,7 +54,7 @@ export default function RegisterForm() {
           />
         </label>
 
-        <label style={styles.label}>
+        <label>
           Password
           <input
             type="password"

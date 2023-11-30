@@ -8,14 +8,7 @@ import { Box  } from "@chakra-ui/react"
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <Box
-      borderBottom='1px' 
-      borderColor='gray.200'
-      h="60px"
-      display='flex'
-      justifyContent='space-between'
-      alignItems='center'
-    >
+    <Box>
         <Navigation />
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
     </Box>
